@@ -28,7 +28,7 @@ const FAQSection = () => {
       answer: "Yes, you can switch between programs or upgrade your plan at any time. We'll prorate your existing subscription and help you transition smoothly to your new program.",
     },
     {
-      question: "What equipment do I need for workouts?",
+      question: "What equipment  I need for workouts?",
       answer: "Most of our workouts are designed for minimal equipment. Bodyweight exercises require no equipment, while some strength training may use resistance bands or light dumbbells, which we can help you source.",
     },
   ];
