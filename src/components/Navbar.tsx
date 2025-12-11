@@ -13,9 +13,10 @@ const Navbar = () => {
   const navLinks = [
     { href: "/about", label: "About", isAnchor: false },
     { href: "/services", label: "Services", isAnchor: false },
-    { href: "/#programs", label: "Programs", isAnchor: true, anchor: "#programs" },
+    { href: "/programs", label: "Programs", isAnchor: false },
     { href: "/#testimonials", label: "Testimonials", isAnchor: true, anchor: "#testimonials" },
     { href: "/#faq", label: "FAQ", isAnchor: true, anchor: "#faq" },
+    { href: "/contact", label: "Contact", isAnchor: false },
   ];
 
   const handleNavClick = (link: typeof navLinks[0]) => {
@@ -63,7 +64,7 @@ const Navbar = () => {
               <Link to="/#consultation">Book Consultation</Link>
             </Button>
             <Button variant="default" size="default" asChild>
-              <Link to="/services">View Programs</Link>
+              <Link to="/programs">View Programs</Link>
             </Button>
           </div>
 
@@ -95,7 +96,7 @@ const Navbar = () => {
                   <Link to="/#consultation" onClick={() => setIsOpen(false)}>Book Consultation</Link>
                 </Button>
                 <Button variant="default" asChild>
-                  <Link to="/services" onClick={() => setIsOpen(false)}>View Programs</Link>
+                  <Link to="/programs" onClick={() => setIsOpen(false)}>View Programs</Link>
                 </Button>
               </div>
             </div>
