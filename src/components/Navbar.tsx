@@ -1,22 +1,41 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { href: isHomePage ? "#about" : "/about", label: "About", isPage: !isHomePage },
-    { href: isHomePage ? "#services" : "/services", label: "Services", isPage: !isHomePage },
-    { href: "/#programs", label: "Programs", isPage: true },
-    { href: "/#testimonials", label: "Testimonials", isPage: true },
-    { href: "/#pricing", label: "Pricing", isPage: true },
-    { href: "/#faq", label: "FAQ", isPage: true },
+    { href: "/about", label: "About", isAnchor: false },
+    { href: "/services", label: "Services", isAnchor: false },
+    { href: "/#programs", label: "Programs", isAnchor: true, anchor: "#programs" },
+    { href: "/#testimonials", label: "Testimonials", isAnchor: true, anchor: "#testimonials" },
+    { href: "/#faq", label: "FAQ", isAnchor: true, anchor: "#faq" },
   ];
+
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    setIsOpen(false);
+    
+    if (link.isAnchor) {
+      if (isHomePage && link.anchor) {
+        // On home page, scroll to anchor
+        const element = document.querySelector(link.anchor);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // Navigate to home page with hash
+        navigate(link.href);
+      }
+    } else {
+      navigate(link.href);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -29,23 +48,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              link.isPage ? (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-muted-foreground hover:text-primary font-medium transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary font-medium transition-colors"
-                >
-                  {link.label}
-                </a>
-              )
+              <button
+                key={link.href}
+                onClick={() => handleNavClick(link)}
+                className="text-muted-foreground hover:text-primary font-medium transition-colors bg-transparent border-none cursor-pointer"
+              >
+                {link.label}
+              </button>
             ))}
           </div>
 
@@ -54,7 +63,7 @@ const Navbar = () => {
               <Link to="/#consultation">Book Consultation</Link>
             </Button>
             <Button variant="default" size="default" asChild>
-              <Link to="/#pricing">Join Program</Link>
+              <Link to="/services">View Programs</Link>
             </Button>
           </div>
 
@@ -73,32 +82,20 @@ const Navbar = () => {
           <div className="lg:hidden py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                link.isPage ? (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="text-muted-foreground hover:text-primary font-medium transition-colors py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary font-medium transition-colors py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                )
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link)}
+                  className="text-muted-foreground hover:text-primary font-medium transition-colors py-2 text-left bg-transparent border-none cursor-pointer"
+                >
+                  {link.label}
+                </button>
               ))}
               <div className="flex flex-col gap-2 pt-4">
                 <Button variant="outline" asChild>
-                  <Link to="/#consultation">Book Consultation</Link>
+                  <Link to="/#consultation" onClick={() => setIsOpen(false)}>Book Consultation</Link>
                 </Button>
                 <Button variant="default" asChild>
-                  <Link to="/#pricing">Join Program</Link>
+                  <Link to="/services" onClick={() => setIsOpen(false)}>View Programs</Link>
                 </Button>
               </div>
             </div>
