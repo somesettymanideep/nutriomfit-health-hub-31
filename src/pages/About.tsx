@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SubpageBanner from "@/components/SubpageBanner";
+import FounderSection from "@/components/FounderSection";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Heart, Sparkles, Users } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,17 +24,17 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-green-light via-background to-background">
+      <SubpageBanner
+        title="About NUTRIOMFIT"
+        subtitle="Where fitness, nutrition and inner awareness work together"
+        backgroundImage="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&h=400&fit=crop"
+      />
+
+      {/* Intro Section */}
+      <section className="section-padding bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6 animate-fade-up">
-              About Us
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-              About <span className="text-primary">NUTRIOMFIT</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               At NUTRIOMFIT, we believe that healing begins when fitness, nutrition and inner awareness work together. 
               Our programs don't follow shortcuts or extreme restrictions — we follow science-backed methods and timeless 
               yogic wisdom to help you build a healthier relationship with your body.
@@ -41,11 +43,17 @@ const About = () => {
         </div>
       </section>
 
+      {/* Founder Section */}
+      <FounderSection />
+
       {/* Philosophy Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
+                Our Approach
+              </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Our <span className="text-primary">Philosophy</span>
               </h2>
@@ -70,7 +78,7 @@ const About = () => {
       </section>
 
       {/* Expertise Section */}
-      <section className="section-padding bg-green-light">
+      <section className="section-padding bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
@@ -79,7 +87,7 @@ const About = () => {
               </h2>
             </div>
             
-            <div className="bg-background rounded-3xl p-8 md:p-12 shadow-xl border border-border">
+            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-xl border border-border">
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 With years of experience training medical professionals and individuals from diverse backgrounds, 
                 we bring a therapeutic, individualized and evidence-aware approach to wellness.

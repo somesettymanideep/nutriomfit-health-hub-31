@@ -1,19 +1,21 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SubpageBanner from "@/components/SubpageBanner";
 
 const TermsConditions = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24 pb-16">
+      <SubpageBanner
+        title="Terms & Conditions"
+        subtitle="Please read these terms carefully before using our services"
+        backgroundImage="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&h=400&fit=crop"
+      />
+
+      <main className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Terms & <span className="text-primary">Conditions</span>
-            </h1>
-            <p className="text-muted-foreground">Last Updated: December 2024</p>
-          </div>
+          <p className="text-muted-foreground text-center mb-8">Last Updated: December 2024</p>
 
           <div className="prose prose-lg max-w-none space-y-8">
             <p className="text-muted-foreground leading-relaxed">
