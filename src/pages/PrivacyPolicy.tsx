@@ -1,17 +1,21 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SubpageBanner from "@/components/SubpageBanner";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24 pb-16">
+      <SubpageBanner
+        title="Privacy Policy"
+        subtitle="How we collect, manage and protect your data"
+        backgroundImage="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920&h=400&fit=crop"
+      />
+
+      <main className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Privacy <span className="text-primary">Policy</span>
-            </h1>
+          <div className="text-center mb-8">
             <p className="text-muted-foreground">Last Updated: December 2024</p>
             <p className="text-sm text-primary mt-2">UK GDPR Compliant</p>
           </div>

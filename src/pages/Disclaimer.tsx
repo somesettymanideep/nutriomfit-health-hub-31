@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SubpageBanner from "@/components/SubpageBanner";
 import { AlertTriangle, X } from "lucide-react";
 
 const Disclaimer = () => {
@@ -7,14 +8,15 @@ const Disclaimer = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24 pb-16">
+      <SubpageBanner
+        title="Medical & General Disclaimer"
+        subtitle="Important information about our services"
+        backgroundImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=400&fit=crop"
+      />
+
+      <main className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Medical & General <span className="text-primary">Disclaimer</span>
-            </h1>
-            <p className="text-muted-foreground">Last Updated: December 2024</p>
-          </div>
+          <p className="text-muted-foreground text-center mb-8">Last Updated: December 2024</p>
 
           <div className="prose prose-lg max-w-none space-y-8">
             <div className="bg-primary/10 rounded-2xl p-6 border border-primary/20">
